@@ -1,9 +1,8 @@
-
+import axios from 'axios';
 
 
 // This is called as an functional expression.
 const App = () => {
-
 
   const options = {
     method: "GET",
@@ -15,16 +14,15 @@ const App = () => {
     },
   };
 
-  axios
-    .request(options)
-    .then(function (response) {
+  axios.request(options).then((response) => {
       console.log(response.data);
-    })
-    .catch(function (error) {
+    }).catch(function (error) {
       console.error(error);
     });
 
-  return <div className="App"></div>;
+  return (
+    <div className="App"></div>
+  )
 };
 
-export default App;
+export default App
