@@ -56,7 +56,7 @@ const App = () => {
   console.log('clicked',clicked)
 
   return (
-    <div className="App">
+    <div className="app">
 
     {!chosenLevel && <div className="level-selector">
       <h1>Word Association App</h1>
@@ -70,6 +70,13 @@ const App = () => {
         <option value="1">Level 1</option>
         <option value="2">Level 2</option>
         <option value="3">Level 3</option>
+        <option value="4">Level 4</option>
+        <option value="5">Level 5</option>
+        <option value="6">Level 6</option>
+        <option value="7">Level 7</option>
+        <option value="8">Level 8</option>
+        <option value="9">Level 9</option>
+        <option value="10">Level 10</option>
       </select>
       </div>}
       
