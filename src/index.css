@@ -20,3 +20,10 @@ code {
 .question-area {
   background-color:blue;
 }
+
+.question-box{
+  background-color:antiquewhite;
+  padding: 10px;
+  border: radius 20px;
+  margin: 10px
+}

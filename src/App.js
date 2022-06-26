@@ -4,7 +4,8 @@ import {useEffect} from "react"
 
 // This is called as an functional expression.
 const App = () => {
-  const [chosenLevel, setChosenLevel] = useState(null);
+  const [chosenLevel, setChosenLevel] = useState('2');
+  const [words, setWords] = useState(null)
 
   const getRandomWords = () => {
     const options = {
@@ -21,13 +22,14 @@ const App = () => {
       .request(options)
       .then((response) => {
         console.log(response.data);
+        setWords(response.data)
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
-  console.log(chosenLevel);
+  console.log(words && words.quizlist);
 
 
   useEffect(() => {
@@ -52,8 +54,16 @@ const App = () => {
       </select>
       </div>}
       
-      {chosenLevel && <div className="question-area">
+      {chosenLevel && words && <div className="question-area">
         <h1>Welcome to Level: {chosenLevel}</h1>
+
+        {words.quizlist.map(question => (
+        <div className="question-box">
+            <p>{question.correct}</p>
+        </div>
+        ))}
+
+
       </div>}
 
     
