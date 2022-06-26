@@ -6,6 +6,7 @@ import {useEffect} from "react"
 const App = () => {
   const [chosenLevel, setChosenLevel] = useState('2');
   const [words, setWords] = useState(null)
+  const [correctAnswers, setCorrectAnswers] = useState([])
 
   const getRandomWords = () => {
     const options = {
@@ -36,6 +37,16 @@ const App = () => {
     if (chosenLevel) getRandomWords()
   }, [chosenLevel]);
 
+
+  const checkAnswer = (option ,optionIndex, correctAnswer) => {
+    console.log(optionIndex, correctAnswer)
+    if (optionIndex == correctAnswer) {
+      setCorrectAnswers([...correctAnswers, option])
+    }
+  }
+
+  console.log(correctAnswers)
+
   return (
     <div className="App">
 
@@ -57,8 +68,22 @@ const App = () => {
       {chosenLevel && words && <div className="question-area">
         <h1>Welcome to Level: {chosenLevel}</h1>
 
-        {words.quizlist.map(question => (
+        {words.quizlist.map((question, questionIndex) => (
         <div className="question-box">
+            {question.quiz.map((tip, _index)=> (
+              <p key={_index}>{tip}</p>
+            ))}
+
+            <div className={"question-buttons"}>
+              {question.option.map((option, optionIndex) => (
+                <div className="question-button">
+                  <button
+                    onClick={() => checkAnswer(option, optionIndex + 1, question.correct)}
+                  >{option}</button>
+                </div>
+              ))}
+            </div>
+
             <p>{question.correct}</p>
         </div>
         ))}
