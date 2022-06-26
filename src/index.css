@@ -18,13 +18,13 @@ code {
 }
 
 .question-area {
-  background-color:blue;
+  max-width: 1000px;
 }
 
 .question-box{
   background-color:antiquewhite;
   padding: 10px;
-  border: radius 20px;
+  border-radius: 20px;
   margin: 10px
 }
 
@@ -38,3 +38,27 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.questions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+
+}
+
+button{
+  margin: 50px;
+  padding:8px;
+  border-radius: 5px;
+  border: none;
+  background-color: darkcyan;
+  color: white;
+}
+
+
+button:disabled {
+  background-color:darkgray;
+  color: darkolivegreen;
+}
+
+
