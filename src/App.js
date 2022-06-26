@@ -42,7 +42,7 @@ const App = () => {
 
   const checkAnswer = (option ,optionIndex, correctAnswer) => {
     console.log(optionIndex, correctAnswer)
-    if (optionIndex == correctAnswer) {
+    if (optionIndex === correctAnswer) {
       setCorrectAnswers([...correctAnswers, option])
       setScore((score) => score + 1)
     } else {
